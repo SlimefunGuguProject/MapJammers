@@ -7,6 +7,7 @@ import me.vaan.mapjammer.implementation.Setup;
 import me.vaan.mapjammer.runnables.CheckPlayers;
 import me.vaan.mapjammer.util.ConfigStorage;
 import me.vaan.mapjammer.util.ShowHideInterface;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -34,6 +35,10 @@ public final class MapJammer extends JavaPlugin implements SlimefunAddon {
 
         ItemGroup group = new ItemGroup(new NamespacedKey(this, "map_jammer"), new CustomItemStack(Material.COMPASS, "&e地图干扰"));
         new Setup(this, group);
+
+        if (ConfigStorage.AUTO_UPDATE && getPluginVersion().startsWith("Build")) {
+            GuizhanUpdater.start(this, getFile(), "SlimefunGuguProject", "MapJammers", "main");
+        }
     }
 
     private void startMapTask() {
