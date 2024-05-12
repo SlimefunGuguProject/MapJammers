@@ -32,7 +32,7 @@ public final class MapJammer extends JavaPlugin implements SlimefunAddon {
 
         startMapTask();
 
-        ItemGroup group = new ItemGroup(new NamespacedKey(this, "map_jammer"), new CustomItemStack(Material.COMPASS, "&eMap Jamming"));
+        ItemGroup group = new ItemGroup(new NamespacedKey(this, "map_jammer"), new CustomItemStack(Material.COMPASS, "&e地图干扰"));
         new Setup(this, group);
     }
 
@@ -82,7 +82,7 @@ public final class MapJammer extends JavaPlugin implements SlimefunAddon {
         }
 
         this.setEnabled(false);
-        getLogger().warning("No supported map plugin found, MapJammers won't work.");
+        getLogger().warning("未找到支持的地图插件，地图干扰器不会启用。");
     }
 
     private void configure() {
